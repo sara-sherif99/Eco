@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Edit Todo</h1>
+<div mat-dialog-content>
+  <p>Title</p>
+  <mat-form-field appearance="outline">
+    <input matInput [(ngModel)]="data.title">
+  </mat-form-field>
+</div>
+<div mat-dialog-content>
+    <p>Content</p>
+    <mat-form-field appearance="outline">
+      <textarea matInput [(ngModel)]="data.content"></textarea>
+    </mat-form-field>
+</div>
+<div class="buttons" mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" style="background-color: #baa4e1;">Cancel</button>
+  <button mat-button  cdkFocusInitial (click)="Edit()">Update</button>
+  <button mat-button  cdkFocusInitial (click)="Signup()">Signup</button>
+</div>
