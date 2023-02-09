@@ -1,1 +1,41 @@
-<p>header works!</p>
+<header id="header" class="navbar navbar-expand-lg sticky-top">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary container d-flex align-items-center justify-content-lg-between">
+    <div class="container-fluid ">
+      <h1 class="logo me-auto me-lg-0 navbar-brand"><a href="index.html">ECO<span><fa-icon
+              [icon]="faSeedling"></fa-icon>.</span></a></h1>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="/home" RouterLinkActive [class.active]="colorHome"
+              (click)="Home()">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about" RouterLinkActive [class.active]="colorAbout"
+              (click)="About()">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/shop" RouterLinkActive [class.active]="colorShop" (click)="Shop()">Shop</a>
+          </li>
+        </ul>
+        <div class="container-fluid">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit"> <fa-icon [icon]="faSearch"></fa-icon></button>
+          </form>
+        </div>
+      </div>
+      <ng-template [ngIf]="loggedOut" [ngIfElse]="loggedIn">
+        <button class="btn btn-outline-success get-started-btn" type="submit" (click)="Login()">Login <fa-icon
+          [icon]="faUser"></fa-icon></button>
+      </ng-template>
+      <ng-template #loggedIn>
+        <button class="btn btn-outline-success get-started-btn profile" type="submit"  (click)="Logout()"><fa-icon
+          [icon]="faUser"></fa-icon></button>
+      </ng-template>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+</header>

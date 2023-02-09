@@ -1,32 +1,34 @@
-import { Component } from '@angular/core';
-import {MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { LoginComponent } from '../login/login.component';
+import { Component,OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 
-export interface DialogData {
-  title: string;
-  content:string;
-  deadline: string;
-  dateCreated:string;
-  id:any; 
-}
+import { faShippingFast } from '@fortawesome/free-solid-svg-icons';
+import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
+import { faSync } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
-  title: any;
-  content: any;
-  deadline: any;
-  id: any;
-  constructor(public dialog: MatDialog){}
-  Login(){
-    const dialogRef = this.dialog.open(LoginComponent, {
-      width: '300px',
-      position: { top: '15vh',
-      left: '40vw'} ,
-      data: {title: this.title, content: this.content, deadline: this.deadline, id:this.id}
-    });
-  }
+export class HomeComponent implements OnInit{
+  constructor(public myService:ProductService){}
+
+  faShippingFast=faShippingFast;
+  faPhoneVolume=faPhoneVolume;
+  faSync=faSync;
+
+  products:any=[{price:2,id:123,name:'ss'},{price:2,id:123,name:'ss'}];
+// Calling Api [ngOnInit]
+  ngOnInit(): void {
+     /*this.myService.getAllProducts().subscribe(
+       {
+         next:(res)=>{
+           // console.log(res)
+           this.products = res;
+           // console.log(this.students)
+         }
+         ,error(err){console.log(err)}
+       }
+     )*/
+   }
 }

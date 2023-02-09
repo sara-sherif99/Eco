@@ -1,0 +1,124 @@
+/*first*/
+.breadcrumb-section {
+    padding: 150px 0;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    z-index: 1;
+    background-attachment: fixed;
+    padding-top: 200px;
+}
+.breadcrumb-bg {
+    background-image: url(../../assets/img/breadcrumb-bg.jpg);
+}
+.breadcrumb-section:after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    background-color: #07212e;
+    z-index: -1;
+    opacity: 0.8;
+}
+.breadcrumb-text h1 {
+    font-size: 50px;
+    font-weight: 900;
+    color: #fff;
+    margin: 0;
+    margin-top: 20px;
+}
+.breadcrumb-text p {
+    color: #198754;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+}
+/*second*/
+.eco {
+    position: relative;
+    margin: 150px 0;
+}
+h2, .h2 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 3.25rem;
+}
+.eco:after {
+    background-image: url(../../assets/img/eco.jpg);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 40%;
+    height: 100%;
+    content: "";
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 5px;
+    -webkit-box-shadow: 0 0 20px #cacaca;
+    box-shadow: 0 0 20px #cacaca;
+    border-bottom-left-radius: 5px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .eco:after {
+        display: none;
+    }
+}
+@media only screen and (max-width: 767px)
+{
+    .eco:after {
+        display: none;
+    }
+}
+
+.list-box {
+    overflow: hidden;
+    letter-spacing: 0.5px;
+}
+.list-box .list-icon * {
+    display: block;
+    font-size: 24px;
+    margin-right: 15px;
+    color: #198754;
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    line-height: 60px;
+    border: 2px #198754 dotted;
+    border-radius: 999px;
+}
+.list-box .content p {
+    margin-bottom: 0px;
+    opacity: 0.75;
+}
+.list-box .content h3 {
+    display: block;
+    line-height: 22px;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+.pb-3, .py-3 {
+    padding-bottom: 1rem!important;
+}
+.orange-text {
+    color: #198754;
+}
+.fa-money-bill-alt:before {
+    content: "\f3d1";
+}
+.fa-shipping-fast:before {
+    content: "\f48b";
+}
+.fa-briefcase:before {
+    content: "\f0b1";
+}
+.fa-sync-alt:before {
+    content: "\f2f1";
+}
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+
+        font-weight: 900;
+
+}
