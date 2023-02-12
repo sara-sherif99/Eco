@@ -1,9 +1,9 @@
 import { Component,OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
-
 import { faShippingFast } from '@fortawesome/free-solid-svg-icons';
 import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -16,11 +16,12 @@ export class HomeComponent implements OnInit{
   faShippingFast=faShippingFast;
   faPhoneVolume=faPhoneVolume;
   faSync=faSync;
+  faShoppingCart=faShoppingCart;
 
-  products:any=[{price:2,id:123,name:'ss'},{price:2,id:123,name:'ss'}];
+  products:any;
 // Calling Api [ngOnInit]
   ngOnInit(): void {
-     /*this.myService.getAllProducts().subscribe(
+     this.myService.getAllProducts().subscribe(
        {
          next:(res)=>{
            // console.log(res)
@@ -29,6 +30,6 @@ export class HomeComponent implements OnInit{
          }
          ,error(err){console.log(err)}
        }
-     )*/
+     )
    }
 }

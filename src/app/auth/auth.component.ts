@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, Routes, RouterLinkActive ,RouterModule } from '
 import { faEye, faSeedling, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-auth',
@@ -39,6 +40,17 @@ export class AuthComponent {
   show: boolean = false;
   showConf: boolean = false;
 
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private changeDetector: ChangeDetectorRef,
+    private http: HttpClient,
+    private cookieService: CookieService,
+    public dialogRef:  MatDialogRef<AuthComponent>,
+    private auth: LoginService,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any
+  ) { }
+
   form = new FormGroup({
     username: new FormControl(null,Validators.required),
     email: new FormControl(null,[Validators.required,Validators.email]),
@@ -47,15 +59,7 @@ export class AuthComponent {
     gender: new FormControl('Male')
     
   });
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private changeDetector: ChangeDetectorRef,
-    private http: HttpClient,
-    private cookieService: CookieService,
-    public dialogRef:  MatDialogRef<AuthComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
+  
 
   activeLog(){
     this.log=true;
@@ -73,8 +77,8 @@ export class AuthComponent {
     if(this.logForm.get('password')?.valid && this.logForm.get('email')?.valid){
       this.http.post<any>('http://localhost:3000/user/login', {email,password}).subscribe(
       (response) => {
+        localStorage.setItem('isLoggedIn', "true"); 
         this.cookieService.set('token',response.token);
-        console.log(response.message)
         this.dialogRef.close();
       },
       (error) => {
@@ -102,6 +106,7 @@ Signup(){
     this.http.post<any>('http://localhost:3000/user/signup', {userName,email,password,gender}).subscribe(
     (response) => {
       this.cookieService.set('token',response.token);
+      localStorage.setItem('isLoggedIn','true');  
       this.dialogRef.close();
     },
     (error) => {

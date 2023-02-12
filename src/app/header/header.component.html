@@ -24,13 +24,20 @@
           </form>
         </div>
       </div>
-      <ng-template [ngIf]="loggedOut" [ngIfElse]="loggedIn">
+      <ng-template [ngIf]="!auth.isLoggedIn()" [ngIfElse]="loggedIn">
         <button class="btn btn-outline-success get-started-btn" type="submit" (click)="Login()">Login <fa-icon
           [icon]="faUser"></fa-icon></button>
       </ng-template>
       <ng-template #loggedIn>
-        <button class="btn btn-outline-success get-started-btn profile" type="submit"  (click)="Logout()"><fa-icon
-          [icon]="faUser"></fa-icon></button>
+        <div class="dropdown">
+          <button class="btn btn-outline-success  dropdown-toggle get-started-btn profile" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><fa-icon
+            [icon]="faUser"></fa-icon></button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" routerLink="/profile" routerLinkActive>Profile</a>
+            <a class="dropdown-item">Orders</a>
+            <a class="dropdown-item"  (click)="Logout()">Logout</a>
+          </div>
+        </div>
       </ng-template>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
         aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">

@@ -48,19 +48,16 @@
             <div class="carousel-inner" role="listbox">
 
                 <!-- Slide 1 -->
-                <div class="carousel-item active" style="background-image: url(../../../assets/img/background8.jpeg);">
+                <div class="carousel-item active" style="background-image: url(../../../assets/img/background3.jpg);">
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <h2 class="animate__animated animate__fadeInDown"><span>Eco</span> Products</h2>
-                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui
-                                aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
-                                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti
-                                vel. Minus et tempore modi architecto.</p>
+                            <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid</p>
                             <div>
                                 <a routerLink="/shop"
                                     class="btn-menu animate__animated animate__fadeInUp scrollto">Visit Shop</a>
                                 <a routerLink="/contact"
-                                    class="btn-book animate__animated animate__fadeInUp scrollto">Contact Us</a>
+                                    class="btn-book animate__animated animate__fadeInUp scrollto">Learn more</a>
                             </div>
                         </div>
                     </div>
@@ -132,7 +129,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                <div class="list-box d-flex align-items-center">
+                <div class="list-box d-flex align-items-center justify-content-center">
                     <div class="list-icon">
                         <!-- <i class="fa-regular fa-truck-bolt"></i> -->
                         <fa-icon [icon]="faShippingFast"></fa-icon>
@@ -144,7 +141,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-                <div class="list-box d-flex align-items-center">
+                <div class="list-box d-flex align-items-center justify-content-center">
                     <div class="list-icon">
                         <fa-icon [icon]="faPhoneVolume"></fa-icon>
                         <!-- <i class="fa fa-sharp fa-solid fa-phone"></i> -->
@@ -157,7 +154,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <div class="list-box d-flex justify-content-start align-items-center">
+                <div class="list-box d-flex justify-content-center align-items-center">
                     <div class="list-icon">
                         <fa-icon [icon]="faSync"></fa-icon>
                     </div>
@@ -189,7 +186,6 @@
         <div class="row">
             <div class="col-lg-4 col-md-6 text-center" *ngFor="let s of products">
                 <div class="single-product-item">
-                    <div class="single-product-item"></div>
                     <div class="product-image">
                         <a routerLink="/singleProduct/{{s.id}}"><img src="../../assets/img/products/product-img-1.jpg"
                                 alt=""></a>
@@ -197,8 +193,11 @@
                     <h3>{{s.name}}</h3>
                     <!-- <h3>Strawberry</h3> -->
                     <!-- <p class="product-price">85$ </p> -->
-                    <p class="product-price">{{s.price}} </p>
-                    <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                    <p class="product-price">
+                        <span>Category: {{s.category}}</span>
+                        {{s.price}}$ 
+                    </p>
+                    <a href="cart.html" class="cart-btn"><fa-icon [icon]="faShoppingCart"></fa-icon>Add to Cart</a>
                 </div>
             </div>
             <!-- <div class="col-lg-4 col-md-6 text-center">

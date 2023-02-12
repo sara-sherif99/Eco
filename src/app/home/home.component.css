@@ -50,13 +50,13 @@ a{
   
   #hero h2 {
     color: #fff;
-    margin-bottom: 30px;
+    margin: 30px 0;
     font-size: 48px;
     font-weight: 700;
   }
   
   #hero h2 span {
-    color: #198754;
+    color: #104b05;
   }
   
   #hero p {
@@ -122,7 +122,7 @@ a{
   }
   
   #hero .btn-menu,
-  #hero .btn-book,.cart-btn{
+  #hero .btn-book{
     font-weight: 600;
     font-size: 13px;
     letter-spacing: 1px;
@@ -136,13 +136,13 @@ a{
     -webkit-animation-delay: 0.8s;
     animation-delay: 0.8s;
     color: #fff;
-    border: 2px solid #198754;
+    border: 2px solid #104b05;
     text-decoration: none;
   }
   
   #hero .btn-menu:hover,
   #hero .btn-book:hover {
-    background: #198754;
+    background: #104b05;
     color: #fff;
   }
   
@@ -181,6 +181,7 @@ a{
     line-height: 22px;
     font-size: 18px;
     margin-bottom: 4px;
+    font-weight: 700;
   }
   .list-box .content p {
     margin-bottom: 0px;
@@ -199,6 +200,32 @@ a{
     border-radius: 999px;
   } 
 
+
+.section-title h3 {
+    font-size: 40px;
+    position: relative;
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+.section-title h3:after {
+  position: absolute;
+  content: '';
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 50px;
+  height: 2px;
+  background-color: #198754;
+  margin: 0 auto;
+}
+.section-title p {
+  font-size: 15px;
+  margin: 0 auto;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
 
 /* -----------------------------------------------------------------------------
 
@@ -267,7 +294,9 @@ a{
     color: #fff;
   }
   .single-product-item {
-    margin-bottom: 30px;
+    box-shadow: 0 0 20px #e4e4e4;
+    padding-bottom: 50px;
+    border-radius: 5px;
   }
   .product-image {
     padding: 30px;
@@ -277,23 +306,28 @@ a{
     width: 90%;
     border-radius: 5px;
     margin-bottom: 20px;
+    transition: 0.3s;
   }
   .single-product-item h3 {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    color: #051922;
   }
   p.product-price {
     font-family: 'Poppins', sans-serif;
     font-size: 30px;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+    color: #051922;
   }
+  
   p.product-price span {
     display: block;
     opacity: 0.8;
     font-size: 15px;
     font-weight: 400;
+    margin: 10px 0;
   }
   a.cart-btn {
     font-family: 'Poppins', sans-serif;
@@ -301,8 +335,9 @@ a{
     background-color: #198754;
     color: #fff;
     padding: 10px 20px;
+    border-radius: 50px;
   }
-  a.cart-btn i {
+  a.cart-btn * {
     margin-right: 5px;
   }
   .single-product-img img {
