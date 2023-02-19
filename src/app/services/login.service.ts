@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-
-  constructor() { }
+  constructor(private http: HttpClient) { }
   isLoggedIn() {
     let status = false;      
      if (localStorage.getItem('isLoggedIn') == "true") {      
@@ -16,4 +16,7 @@ export class LoginService {
         }      
      return status;   
   }
+  /*getUserById(id:any){
+   this.user = this.http.get(`http://localhost:3000/user/${id}`);
+  }*/
 }

@@ -3,7 +3,7 @@
   # Footer Styles
   
   ----------------------------------------------------------------------------- */
- a {
+  a {
      text-decoration: none;
  }
 
@@ -18,7 +18,7 @@
  }
 
  .footer-area {
-     background-color: #051922;
+     background-color: var(--back);
      color: #fff;
      padding: 150px 0;
  }
@@ -37,7 +37,7 @@
      bottom: 0;
      width: 20px;
      height: 2px;
-     background-color: #198754;
+     background-color: var(--green);
      content: "";
  }
 
@@ -65,19 +65,19 @@
 
  .footer-box.subscribe form input[type=email] {
      border: none;
-     background-color: #012738;
+     background-color: white;
      width: 78%;
      padding: 15px;
      border-top-left-radius: 5px;
      border-bottom-left-radius: 5px;
-     color: #fff;
+     color: var(--green);
  }
 
  .footer-box.subscribe form button {
      width: 20%;
      border: none;
-     background-color: #012738;
-     color: #198754;
+     background-color: var(--green);
+     color: white;
      padding: 14px 0;
      border-top-right-radius: 3px;
      border-bottom-right-radius: 3px;
@@ -86,46 +86,6 @@
 
  .footer-box.subscribe form button:focus {
      outline: none;
- }
-
- .copyright {
-     background-color: #051922;
-     border-top: 1px solid #232a35;
- }
-
- .copyright p {
-     margin: 0;
-     color: #fff;
-     opacity: 0.7;
-     padding: 16px 0;
-     font-size: 15px;
- }
-
- .copyright a {
-     color: #198754;
-     font-weight: 700;
- }
-
- .copyright a:hover {
-     color: #198754;
- }
-
- .social-icons ul {
-     margin: 0;
-     padding: 0;
-     list-style: none;
- }
-
- .social-icons ul li {
-     display: inline-block;
- }
-
- .social-icons ul li a {
-     font-size: 16px;
-     color: #fff;
-     opacity: 0.7;
-     padding: 16px 10px;
-     display: block;
  }
 
  .footer-box ul li a {
@@ -144,7 +104,7 @@
      content: "\f105";
      font-family: "Font Awesome 5 Free";
      font-weight: 900;
-     color: #198754;
+     color: var(--green);
  }
 
  a.navbar-brand {
@@ -160,8 +120,8 @@
  }
 
  a.boxed-btn:hover {
-     background-color: #051922;
-     color: #198754;
+     background-color: var(--light);
+     color: var(--green);
  }
 
  a.bordered-btn {
@@ -169,7 +129,7 @@
  }
 
  a.bordered-btn:hover {
-     background-color: #198754;
+     background-color: var(--green);
      color: #fff;
  }
 
@@ -178,7 +138,7 @@
  }
 
  ul.sub-menu li:hover a {
-     color: #198754;
+     color: var(--green);
  }
 
  .single-tof-box {
@@ -195,7 +155,7 @@
 
  a.video-play-btn:hover {
      background-color: #333;
-     color: #198754;
+     color: var(--green);
  }
 
  .latest-news-bg {
@@ -215,7 +175,7 @@
  }
 
  a.tof-btn:hover {
-     color: #198754;
+     color: var(--green);
  }
 
  a.tof-btn:hover i {
@@ -245,7 +205,7 @@
  }
 
  .footer-box.pages ul li:hover a {
-     color: #198754;
+     color: var(--green);
  }
 
  .footer-box.subscribe form button {
@@ -253,12 +213,12 @@
  }
 
  .footer-box.subscribe form button:hover {
-     background-color: #198754;
-     color: #051922;
+     background-color: var(--green);
+     color: var(--light);
  }
 
  .social-icons ul li:hover a {
-     color: #198754;
+     color: var(--green);
  }
 
  .social-icons ul li a {
@@ -271,7 +231,7 @@
 
  ul.social-link-team li a:hover {
      background-color: #051922;
-     color: #198754;
+     color: var(--green);
  }
 
  .counter-box {
@@ -289,7 +249,7 @@
 
  input[type="submit"]:hover {
      background-color: #051922;
-     color: #198754;
+     color: var(--green);
  }
 
  div.owl-controls,
@@ -306,7 +266,7 @@
  }
 
  .pagination-wrap ul li:hover a {
-     background-color: #198754;
+     background-color: var(--green);
  }
 
  .icons a i {
@@ -314,7 +274,7 @@
  }
 
  .icons a:hover i {
-     color: #198754;
+     color: var(--green);
  }
 
  .tof-text a.tof-btn {
@@ -344,7 +304,7 @@
 
  a.cart-btn:hover {
      background-color: #051922;
-     color: #198754;
+     color: var(--green);
  }
 
  .recent-posts ul li {
@@ -360,7 +320,7 @@
  }
 
  ul.sub-menu li:hover a {
-     color: #198754 !important;
+     color: var(--green) !important;
  }
 
  .sidebar-section ul li a {
@@ -376,7 +336,7 @@
  }
 
  .comment-text-body h4 a:hover {
-     color: #198754;
+     color: var(--green);
  }
 
  ul.product-share li a {
@@ -384,7 +344,7 @@
  }
 
  ul.product-share li:hover a {
-     color: #198754;
+     color: var(--green);
  }
 
  .service-menu ul li a {
@@ -430,5 +390,5 @@
  }
 
  a.mobile-show.search-bar-icon:hover {
-     color: #198754;
+     color: var(--green);
  }

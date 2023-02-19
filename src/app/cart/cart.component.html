@@ -1,0 +1,98 @@
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-center">
+          <div class="breadcrumb-text">
+            <p>Fresh and Organic</p>
+            <h1>Cart</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end breadcrumb section -->
+  
+  <!-- cart -->
+  <!--empty cart-->
+  <ng-container *ngIf=" !products || products.length == 0">
+    <div class="container empty-cart-caption p-5">
+      <div class="row align-items-center elimg">
+        <img class="img-fluid" src="../../assets/img/cartempty.jpg" alt="" />
+      </div>
+  
+      <div class="btn-container d-flex justify-content-end ">
+        <button class="mt-5 mb-4 btn btn-success" routerLink="/shop">Go Shopping</button>
+  
+      </div>
+    </div>
+  </ng-container>
+  <!---->
+  <ng-container *ngIf=" products && products.length > 0">
+  <div class="cart-section mt-150 mb-150">
+    <div class="container p-5">
+      <div class="row">
+        <div class="col-lg-8 col-md-12">
+          <div class="cart-table-wrap">
+            <table class="cart-table">
+              <thead class="cart-table-head">
+                <tr class="table-head-row">
+                  <th>No.</th>
+                  <th class="product-remove">Remove</th>
+                  <th class="product-image">Product Image</th>
+                  <th class="product-name">Name</th>
+                  <th class="product-price">Price</th>
+                  <th class="product-quantity">Quantity</th>
+                  <th class="product-total">Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-body-row" *ngFor="let productItem of products ;let i =index">
+                  <td>{{ i + 1 }}</td>
+                  <td class="product-remove"><button  class="btn btn-success" (click)="removeItem(productItem?.id)">Delete</button></td>
+                  <td class="product-image"><img [src]=" productItem?.imgsrc" alt="{{productItem.name}}" alt=""></td>
+                  <td class="product-name">{{productItem?.name}}</td>
+                  <td class="product-price">{{productItem?.price}}</td>
+                  <td class="row m-auto p-5"><button class="col-4 btn btn-success" (click)="increase(productItem?.id)">+</button><div class="col-4">{{productItem?.quantity}}</div><button class="col-4 btn  btn-success" (click)="decrease(productItem.id)">-</button></td>
+                  <td class="product-total-price">{{ productItem?.quantity * productItem?.price | number }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  
+        <div class="col-lg-4">
+          <div class="total-section">
+            <table class="total-table">
+              <thead class="total-table-head">
+                <tr class="table-total-row">
+                  <th>Total</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="total-data" >
+                  <td><strong>Subtotal: </strong></td>
+                  <td>{{geTotal}}</td>
+                </tr>
+                <tr class="total-data">
+                  <td><strong>Shipping: </strong></td>
+                  <td>$45</td>
+                </tr>
+                <tr class="total-data">
+                  <td><strong>Total: </strong></td>
+                  <td>{{allTotal}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="cart-buttons">
+              <a href="checkout.html">Check Out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </ng-container>
+  <!-- end cart -->
+  

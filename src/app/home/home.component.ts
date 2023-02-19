@@ -4,6 +4,10 @@ import { faShippingFast } from '@fortawesome/free-solid-svg-icons';
 import { faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { SingleProductComponent } from '../single-product/single-product.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AuthComponent } from '../auth/auth.component';
+import { NavbarService } from '../services/navbar.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +15,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
-  constructor(public myService:ProductService){}
+  constructor(public myService:ProductService,public dialog: MatDialog,public nav:NavbarService){}
 
   faShippingFast=faShippingFast;
   faPhoneVolume=faPhoneVolume;
@@ -21,15 +25,39 @@ export class HomeComponent implements OnInit{
   products:any;
 // Calling Api [ngOnInit]
   ngOnInit(): void {
+    
+      this.nav.home=true;
+      this.nav.about=false;
+      this.nav.shop=false;
      this.myService.getAllProducts().subscribe(
        {
-         next:(res)=>{
+         next:(res:any)=>{
            // console.log(res)
-           this.products = res;
-           // console.log(this.students)
+           this.products = res.filter((pro:any)=>{
+            return pro.sale != 0;
+           });
          }
          ,error(err){console.log(err)}
        }
      )
+   }
+
+   Open(product:any){
+    if(localStorage.getItem("isLoggedIn")=='true'){
+      const dialogRef = this.dialog.open(SingleProductComponent, {
+        panelClass: 'product-dialog',
+        data:product
+        /*position: { top: '10vh',
+        left: '40vw'},*/
+      });
+    }
+    else{
+      const dialogRef = this.dialog.open(AuthComponent, {
+        width: '350px',
+        panelClass: 'auth-dialog',
+        /*position: { top: '10vh',
+        left: '40vw'},*/
+      });
+    }
    }
 }

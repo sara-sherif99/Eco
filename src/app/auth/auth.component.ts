@@ -77,8 +77,10 @@ export class AuthComponent {
     if(this.logForm.get('password')?.valid && this.logForm.get('email')?.valid){
       this.http.post<any>('http://localhost:3000/user/login', {email,password}).subscribe(
       (response) => {
-        localStorage.setItem('isLoggedIn', "true"); 
-        this.cookieService.set('token',response.token);
+
+        localStorage.setItem('isLoggedIn', "true");
+        localStorage.setItem('token',response.token);
+        localStorage.setItem('user', JSON.stringify(response.user));
         this.dialogRef.close();
       },
       (error) => {
@@ -105,7 +107,8 @@ Signup(){
   if(password==confirmpassword &&this.form.get('password')?.valid && this.form.get('email')?.valid &&this.form.get('username')?.valid){
     this.http.post<any>('http://localhost:3000/user/signup', {userName,email,password,gender}).subscribe(
     (response) => {
-      this.cookieService.set('token',response.token);
+      localStorage.setItem('user', JSON.stringify(response.user));
+      localStorage.setItem('token',response.token);
       localStorage.setItem('isLoggedIn','true');  
       this.dialogRef.close();
     },

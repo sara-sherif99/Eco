@@ -1,8 +1,10 @@
 a{
     text-decoration: none;
+    cursor: pointer;
 }
+
 .green-text{
-  color:#198754;
+  color:var(--light);
 }
 /*--------------------------------------------------------------
 # Hero Section
@@ -25,7 +27,7 @@ a{
   
   #hero .carousel-item::before {
     content: "";
-    background-color: rgba(12, 11, 10, 0.3);
+    background-color: rgba(12, 11, 10,0.2);
     position: absolute;
     top: 0;
     right: 0;
@@ -43,20 +45,28 @@ a{
     left: 0;
     right: 0;
   }
-  
   #hero .carousel-content {
+    background-color: rgba(255, 255, 255,0.3);
+    border-radius: 20px;
+    padding: 30px;
     text-align: center;
+  }
+  @media only screen and (max-width: 992px){
+    #hero .carousel-content {
+      padding: 10px 0px;
+      margin: 0 10px ;
+    }
   }
   
   #hero h2 {
-    color: #fff;
+    color: var(--light);
     margin: 30px 0;
-    font-size: 48px;
+    font-size: 2.5rem;
     font-weight: 700;
   }
   
   #hero h2 span {
-    color: #104b05;
+    color: var(--green);
   }
   
   #hero p {
@@ -64,7 +74,8 @@ a{
     -webkit-animation-delay: 0.4s;
     animation-delay: 0.4s;
     margin: 0 auto 30px auto;
-    color: #fff;
+    color: white;
+    font-size: 20px;
   }
   
   #hero .carousel-inner .carousel-item {
@@ -135,33 +146,17 @@ a{
     margin: 0 10px;
     -webkit-animation-delay: 0.8s;
     animation-delay: 0.8s;
-    color: #fff;
-    border: 2px solid #104b05;
+    color: var(--green);
+    border: 2px solid var(--green);
     text-decoration: none;
   }
   
   #hero .btn-menu:hover,
   #hero .btn-book:hover {
-    background: #104b05;
+    background: var(--green);
     color: #fff;
   }
   
-  @media (max-width: 768px) {
-    #hero h2 {
-      font-size: 28px;
-    }
-  }
-  
-  @media (min-width: 1024px) {
-    #hero p {
-      width: 50%;
-    }
-  
-    #hero .carousel-control-prev,
-    #hero .carousel-control-next {
-      width: 5%;
-    }
-  }
 
 
   /* -----------------------------------------------------------------------------
@@ -170,33 +165,38 @@ a{
 
 ----------------------------------------------------------------------------- */
 .list-section {
-    background-color: #f5f5f5;
+    background-color: var(--sec);
   }
   .list-box {
     overflow: hidden;
     letter-spacing: 0.5px;
   }
+  .list-box .content {
+    width: 50%;
+  }
   .list-box .content h3 {
     display: block;
     line-height: 22px;
-    font-size: 18px;
+    font-size: 22px;
     margin-bottom: 4px;
     font-weight: 700;
+    color: var(--green);
   }
   .list-box .content p {
     margin-bottom: 0px;
     opacity: 0.75;
+    font-size: 15px;
   }
   .list-box .list-icon * {
     display: block;
     font-size: 24px;
     margin-right: 15px;
-    color: #198754;
+    color: var(--light);
     width: 65px;
     height: 65px;
     text-align: center;
     line-height: 60px;
-    border: 2px #198754 dotted;
+    border: 2px var(--light) dotted;
     border-radius: 999px;
   } 
 
@@ -215,7 +215,7 @@ a{
   bottom: 0px;
   width: 50px;
   height: 2px;
-  background-color: #198754;
+  background-color: var(--green);
   margin: 0 auto;
 }
 .section-title p {
@@ -235,7 +235,7 @@ a{
  .shop-banner {
     position: relative;
     background-color: #f5f5f5;
-    background-image: url(../../assets/img/1.jpg);
+    background-image: url(../../assets/img/ECO2.jpg);
     background-size: cover;
     padding: 110px 0px 115px;
   }
@@ -249,7 +249,7 @@ a{
     position: relative;
     font-size: 60px;
     font-weight: 700;
-    color: #198754;
+    color: var(--green);
     padding: 20px 0;
   }
   .shop-banner .sale-percent span {
@@ -289,37 +289,41 @@ a{
     border-radius: 25px;
   }
   .product-filters ul li.active {
-    border: 2px solid #198754;
-    background-color: #198754;
+    border: 2px solid var(--green);
+    background-color: var(--green);
     color: #fff;
   }
   .single-product-item {
     box-shadow: 0 0 20px #e4e4e4;
     padding-bottom: 50px;
     border-radius: 5px;
+    width: 80%;
+    margin: auto;
   }
   .product-image {
-    padding: 30px;
+    padding: 10px;
     padding-bottom: 0;
   }
   .product-image img {
     width: 90%;
     border-radius: 5px;
-    margin-bottom: 20px;
+    padding-bottom: 10px;
     transition: 0.3s;
+    height: 250px;
+    object-fit: cover;
   }
   .single-product-item h3 {
     font-size: 30px;
     font-weight: 600;
     margin-bottom: 30px;
-    color: #051922;
+    color: black;
   }
   p.product-price {
     font-family: 'Poppins', sans-serif;
     font-size: 30px;
     font-weight: 700;
     margin-bottom: 30px;
-    color: #051922;
+    color: black;
   }
   
   p.product-price span {
@@ -332,7 +336,7 @@ a{
   a.cart-btn {
     font-family: 'Poppins', sans-serif;
     display: inline-block;
-    background-color: #198754;
+    background-color: var(--green);
     color: #fff;
     padding: 10px 20px;
     border-radius: 50px;
@@ -534,7 +538,7 @@ a{
     font-weight: 900;
     line-height: 22px;
     margin-top: -11px;
-    color: #198754;
+    color: var(--green);
   }
   .card.single-accordion .card-header h5 button:before .billing-address-form form p:last-child {
     margin-bottom: 0;
@@ -576,20 +580,20 @@ a.boxed-btn {
 }
 a.boxed-btn:hover {
   background-color: #051922;
-  color: #198754;
+  color: var(--green);
 }
 a.bordered-btn {
   transition: 0.3s;
 }
 a.bordered-btn:hover {
-  background-color: #198754;
+  background-color: var(--green);
   color: #fff;
 }
 ul.sub-menu a {
   transition: 0.3s;
 }
 ul.sub-menu li:hover a {
-  color: #198754;
+  color: var(--green);
 }
 .single-tof-box {
   transition: 0.3s;
@@ -602,7 +606,7 @@ a.video-play-btn {
 }
 a.video-play-btn:hover {
   background-color: #333;
-  color: #198754;
+  color: var(--green);
 }
 .latest-news-bg {
   transition: 0.3s;
@@ -617,7 +621,7 @@ a.tof-btn i {
   transition: 0.3s;
 }
 a.tof-btn:hover {
-  color: #198754;
+  color: var(--green);
 }
 a.tof-btn:hover i {
   margin-left: 10px;
@@ -640,17 +644,17 @@ a.tof-btn:hover i {
   transition: 0.3s;
 }
 .footer-box.pages ul li:hover a {
-  color: #198754;
+  color: var(--green);
 }
 .footer-box.subscribe form button {
   transition: 0.3s;
 }
 .footer-box.subscribe form button:hover {
-  background-color: #198754;
+  background-color: var(--green);
   color: #051922;
 }
 .social-icons ul li:hover a {
-  color: #198754;
+  color: var(--green);
 }
 .social-icons ul li a {
   transition: 0.3s;
@@ -660,7 +664,7 @@ ul.social-link-team li a {
 }
 ul.social-link-team li a:hover {
   background-color: #051922;
-  color: #198754;
+  color: var(--green);
 }
 .counter-box {
   transition: 0.3s;
@@ -674,7 +678,7 @@ input[type="submit"] {
 }
 input[type="submit"]:hover {
   background-color: #051922;
-  color: #198754;
+  color: var(--green);
 }
 div.owl-controls, .owl-controls div {
   transition: 0.3s;
@@ -686,13 +690,13 @@ div.owl-controls div.owl-nav div:hover {
   transition: 0.3s;
 }
 .pagination-wrap ul li:hover a {
-  background-color: #198754;
+  background-color: var(--green);
 }
 .icons a i {
   transition: 0.3s;
 }
 .icons a:hover i {
-  color: #198754;
+  color: var(--green);
 }
 .tof-text a.tof-btn {
   margin-top: 15px;
@@ -711,11 +715,13 @@ div.owl-controls div.owl-nav div:hover {
   box-shadow: none;
 }
 a.cart-btn {
+  background-color: var(--light);
   transition: 0.3s;
 }
 a.cart-btn:hover {
-  background-color: #051922;
-  color: #198754;
+  background-color: var(--green);
+  transition: 0.3s;
+  font-size: larger;
 }
 .recent-posts ul li {
   transition: 0.3s;
@@ -727,7 +733,7 @@ ul.sub-menu li a {
   transition: 0.3s;
 }
 ul.sub-menu li:hover a {
-  color: #198754 !important;
+  color: var(--green) !important;
 }
 .sidebar-section ul li a {
   transition: 0.3s;
@@ -739,13 +745,13 @@ ul.sub-menu li:hover a {
   transition: 0.3s;
 }
 .comment-text-body h4 a:hover {
-  color: #198754;
+  color: var(--green);
 }
 ul.product-share li a {
   transition: 0.3s;
 }
 ul.product-share li:hover a {
-  color: #198754;
+  color: var(--green);
 }
 .service-menu ul li a {
   transition: 0.3s;
@@ -780,11 +786,36 @@ a.mobile-show.search-bar-icon {
   transition: 0.3s;
 }
 a.mobile-show.search-bar-icon:hover {
-  color: #198754;
+  color: var(--green);
+}
+.sale {
+  display: block;
+  text-decoration: none;
+  font-size: 20px;
+  color: #CF3537;
+  transition: all ease 0.2s;
+  line-height: 24px;
+  position: relative;
+}
+.sale span.badge {
+  font-size: 18px;
+  line-height: 16px;
+  position: absolute;
+  z-index: 900;
+  top: 8px;
+  right: 10px;
+  color: #fff;
+  padding: 10px 12px;
+  background: #CF3537;
+  border-radius: 100px;
+}
+.old-price {
+  color: #666;
+  margin: 5px 0;
+  font-weight: 400;
+  font-size: 20px;
 }
 
-  
-  
-
-  
-  
+.old-price span {
+  text-decoration: line-through;
+}

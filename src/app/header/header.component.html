@@ -6,21 +6,21 @@
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="/home" RouterLinkActive [class.active]="colorHome"
-              (click)="Home()">Home</a>
+            <a class="nav-link" aria-current="page" routerLink="/home" RouterLinkActive [class.active]="nav.home"
+              >Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/about" RouterLinkActive [class.active]="colorAbout"
-              (click)="About()">About</a>
+            <a class="nav-link" routerLink="/about" RouterLinkActive [class.active]="nav.about"
+              >About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/shop" RouterLinkActive [class.active]="colorShop" (click)="Shop()">Shop</a>
+            <a class="nav-link" routerLink="/shop" RouterLinkActive [class.active]="nav.shop">Shop</a>
           </li>
         </ul>
         <div class="container-fluid">
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit"> <fa-icon [icon]="faSearch"></fa-icon></button>
+            <button class="btn submit btn-outline-success" type="submit"> <fa-icon [icon]="faSearch"></fa-icon></button>
           </form>
         </div>
       </div>
@@ -34,6 +34,8 @@
             [icon]="faUser"></fa-icon></button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" routerLink="/profile" routerLinkActive>Profile</a>
+            <a class="dropdown-item" routerLink="/wishlist" routerLinkActive>Wishlist</a>
+            <a class="dropdown-item" routerLink="/cart" routerLinkActive>Cart</a>
             <a class="dropdown-item">Orders</a>
             <a class="dropdown-item"  (click)="Logout()">Logout</a>
           </div>

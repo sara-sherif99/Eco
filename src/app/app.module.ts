@@ -1,10 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-/* Routing */
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
@@ -20,6 +17,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './header/header.component';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProfileComponent } from './profile/profile.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { SingleProductComponent } from './single-product/single-product.component';
+import { ShopComponent } from './shop/shop.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { FilterPricePipe } from './filter-price.pipe';
+import { OrderByPipe } from './order-by.pipe';
+import { MatSelectModule } from '@angular/material/select';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CartComponent } from './cart/cart.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +37,14 @@ import { FooterComponent } from './footer/footer.component';
     AuthComponent,
     HeaderComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    ProfileComponent,
+    SingleProductComponent,
+    ShopComponent,
+    FilterPricePipe,
+    OrderByPipe,
+    CartComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +62,10 @@ import { FooterComponent } from './footer/footer.component';
     MatDatepickerModule,
     MatNativeDateModule,
     FontAwesomeModule,
+    Ng2SearchPipeModule,
+    NgxSliderModule,
+    MatSelectModule,
+    NgxPaginationModule
   ],
   providers: [
     {provide: MatDialogRef, useValue: {}},

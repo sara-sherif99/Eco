@@ -7,6 +7,7 @@ import {  Router , ActivatedRoute,NavigationExtras } from '@angular/router';
 import { AuthComponent } from '../auth/auth.component';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from '../services/login.service';
+import { NavbarService } from '../services/navbar.service';
 
 @Component({
   selector: 'app-header',
@@ -29,13 +30,12 @@ export class HeaderComponent {
   token:any;
 
   constructor(public dialog: MatDialog,public router: Router,public route:ActivatedRoute,
-    public cookieService:CookieService,public auth: LoginService){}
+    public cookieService:CookieService,public auth: LoginService,public nav:NavbarService){}
   ngOnInit(){
-    this.url=location.pathname
-    console.log(this.url);
+    /*this.url=location.pathname
     this.colorHome = (this.url=='/'||this.url=='/home'||this.url=='/index.html')?true:false;
     this.colorAbout = this.url=='/about'?true:false;
-    this.colorShop  = this.url=='/shop'?true:false;
+    this.colorShop  = this.url=='/shop'?true:false;*/
   } 
   @HostListener('window:scroll', ['$event'])
 
@@ -47,36 +47,23 @@ export class HeaderComponent {
       element.classList.remove('scroll');
     }
   }
-  Home() {
-    this.colorHome  = true;
-    this.colorAbout  = false;
-    this.colorShop = false;
-  }
-  About() {
-    this.colorAbout  = true;
-    this.colorHome  = false;
-    this.colorShop = false;
-  }
-  Shop() {
-    this.colorShop  = true;
-    this.colorAbout  = false;
-    this.colorHome = false;
-  }
-
   
   Login(){
     const dialogRef = this.dialog.open(AuthComponent, {
       width: '350px',
-      position: { top: '10vh',
-      left: '40vw'},
+      panelClass: 'auth-dialog',
+      /*position: { top: '10vh',
+      left: '40vw'},*/
     });
     dialogRef.afterClosed().subscribe(result => {
     });
   }
   Logout(){
     localStorage.setItem('isLoggedIn','false');  
-    this.cookieService.delete('token');
-    this.router.navigate(['/home']);
-    location.reload();
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.router.navigate(['/home']).then(function(){
+      location.reload();
+    });
   }
 }

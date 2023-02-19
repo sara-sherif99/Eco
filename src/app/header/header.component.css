@@ -4,12 +4,6 @@ body {
 }
 
 a {
-  color: #198754;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #198754;
   text-decoration: none;
   cursor: pointer;
 }
@@ -29,7 +23,7 @@ h6 {
 --------------------------------------------------------------*/
 #header {
   transition: all 0.5s;
-  z-index: 997;
+  z-index: 1000;
   padding: 15px 0;
   position: fixed;
   width: 100%;
@@ -38,7 +32,6 @@ h6 {
 #header.scroll{
   background-color: white;
 }
-
 #header.header-scrolled,
 #header.header-inner-pages {
   background: rgba(0, 0, 0, 0.8);
@@ -55,12 +48,12 @@ h6 {
 }
 
 #header .logo a {
-  color: #104b05;
+  color: var(--green);
   font-size: 30px;
 }
 
 #header .logo a span {
-  color: #104b05;
+  color: var(--green);
 }
 
 #header .logo img {
@@ -81,11 +74,39 @@ h6 {
   border: 2px solid white;
 }
 #header.scroll .get-started-btn {
-  color: #104b05;
-  border: 2px solid #104b05;
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+.get-started-btn:hover {
+  background: var(--light);
+  color: white;
+  font-size: larger;
+  border: 2px solid var(--light);
+}
+#header.scroll .get-started-btn:hover {
+  background: var(--green);
+  color: white;
+}
+.btn.submit {
+  color: white;
+  border-color: white;
+}
+.btn.submit:hover {
+  color: white;
+  background-color: var(--light);
+  border-color: var(--light);
+}
+#header.scroll .btn.submit {
+  color: var(--green);
+  border: 2px solid var(--green);
+}
+#header.scroll .btn.submit:hover {
+  color: white;
+  background-color: var(--green);
+  border: 2px solid var(--green);
 }
 .get-started-btn.profile {
-  color: #104b05;
+  color: white;
   height:50px;
   width: 50px;
   border-radius: 50%;
@@ -97,21 +118,17 @@ h6 {
   border: 2px solid white;
   margin-left: 20px;
 }
+.get-started-btn.profile:hover {
+  color: white;
+  border: 2px solid var(--light);
+  background-color: var(--light);
+}
 .navbar-toggler {
-  color: #198754;
+  color: var(--green);
   margin-top: 10px;
 }
 
-.get-started-btn:hover {
-  background: #104b05;
-  color: white;
-  font-size: larger;
-  border: 2px solid #104b05;
-}
-#header.scroll .get-started-btn:hover {
-  background: #104b05;
-  color: white;
-}
+
 
 @media (max-width: 992px) {
   .get-started-btn {
@@ -150,24 +167,33 @@ h6 {
   justify-content: space-between;
   padding: 10px 0 10px 30px;
   font-size: 17px;
-  font-weight: 600;
-  color: gray;
+  color: white;
   white-space: nowrap;
   transition: 0.3s;
 }
 
-.navbar a i,
-.navbar a:focus i {
+
+.navbar ul a i,
+.navbar ul a:focus i {
   font-size: 15px;
   line-height: 0;
   margin-left: 5px;
 }
+#header.scroll .navbar ul a{
+  color: gray;
 
-.navbar a:hover,
-.navbar .active,
-.navbar .active:focus,
+}
+
+#header.scroll .navbar ul .active,
+.navbar ul .active{
+  color: var(--green);
+  font-weight: bolder;
+  font-size: larger;
+}
+.navbar ul a:hover, 
+#header.scroll .navbar ul a:hover,
 .navbar li:hover>a {
-  color: #198754;
+  color: var(--light);
   font-weight: bolder;
   font-size: larger;
 }
@@ -229,7 +255,7 @@ h6 {
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
   color: #151515;
-  background-color: #198754;
+  background-color: var(--green);
 }
 
 .navbar-mobile .getstarted,
@@ -243,5 +269,21 @@ h6 {
 
 }
 .form-control:focus {
-  box-shadow: 1px 1px 1px 3px #198754;
+  box-shadow: 0px 0px 1px 1px var(--light);
+}
+.navbar a.dropdown-item {
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  color: var(--green);
+  text-decoration: none;
+  background-color: transparent;
+  border: 0;
+  padding: 10px 0 10px 30px;
+  font-size: 17px;
+  transition: 0.3s;
+}
+.navbar a.dropdown-item:hover, .navbar a.dropdown-item:focus {
+  color: var(--light);
+  background-color: var(--bs-dropdown-link-hover-bg);
 }

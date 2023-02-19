@@ -1,3 +1,7 @@
+:root {
+    --green: #293F10;
+    --white: #ffffff;
+  }
 .navbar{
     background-color: white;
     text-align: center;
@@ -9,7 +13,7 @@
     border: none;
     width: 50%;
     text-decoration: none;
-    color: #198754;
+    color: var(--green);
     font-size: 20px;
     padding: 15px;
     transition: all 0.5s linear;
@@ -17,7 +21,7 @@
 
 .navbar button.active{
     transition: all 0.5s linear;
-    background-color: #198754;
+    background-color: var(--green);
     color: white;
 }
 * {
@@ -116,12 +120,12 @@ a {
 .register input[type=email]:focus,
 .register input[type=password]:focus,
 .register input[type=text]:focus {
-    border: 1px solid #198754;
+    border: 1px solid var(--green);
     transition: all 0.5s linear;
 }
 
 .register input[type=submit] {
-    background-color: #198754;
+    background-color: var(--green);
     color: #fff;
     margin-bottom: 1rem;
     width: 100%;
@@ -183,7 +187,7 @@ h2{
     left: 4px;
     width: 12px;
     height: 12px;
-    background: #198754;
+    background: var(--green);
     border-radius: 50%;
     opacity: 0;
     transform: scale(1.5);
@@ -194,8 +198,8 @@ h2{
   }
   #option-1:checked:checked ~ .option-1,
   #option-2:checked:checked ~ .option-2{
-    border-color: #198754;
-    background: #198754;
+    border-color: var(--green);
+    background: var(--green);
   }
   #option-1:checked:checked ~ .option-1 .dot,
   #option-2:checked:checked ~ .option-2 .dot{
@@ -234,4 +238,10 @@ h2{
 }
 .form__field p.error, .errorHandle p.error{
     visibility: visible;
+}
+@media only screen and (max-width: 992px)
+{
+    .showPass{
+        transform: translate(90px,-60px);
+    }
 }

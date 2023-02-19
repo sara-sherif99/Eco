@@ -1,1 +1,114 @@
-<p>shop works!</p>
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 text-center">
+        <div class="breadcrumb-text">
+          <p>Be Part Of The Solution.</p>
+          <h1>Shop</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end breadcrumb section -->
+<!--filter-->
+<!--<div class="container mt-5 ">
+    <div class="row m-auto">
+      <div class=" w-50  m-auto">
+        <select class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+          <option selected>Filter By</option>
+          <option value="Category">Category</option>
+          <option value="Price">Price</option>
+        </select>
+      </div>
+    </div>
+  </div>-->
+
+<!------------------------------------------------------------------------------------------------------------------------->
+
+<!-- <div class="row">
+    <div class="col-lg-4 col-md-6 text-center" *ngFor="let s of products">
+        <div class="single-product-item container-fluid border">
+            <div class="single-product-item "></div>
+            <div class="product-image">
+                <a routerLink="/singleProduct/{{s.id}}"><img [src]="s.imgsrc"
+                        alt=""></a>
+            </div>
+            <h3>{{s.name}}</h3>
+            <p class="product-price">{{s.price}} </p>
+            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+        </div>
+    </div>
+   -->
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-3">
+      <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+		</div>
+    <div class="col-md-6">
+      <div class="product-filters">
+        <ul>
+          <!-- <li class="active" data-filter="*">All</li>
+          <li data-filter=".kitchen">Kitchen</li>
+          <li data-filter=".tools">Tools</li>
+          <li data-filter=".other">Other</li> -->
+          <li (click)="filter(item=='All'?'':item)" *ngFor="let item of items; let i = index" [class.active]="i === activeIndex" (click)="activeIndex = i">
+            {{item}}
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <mat-form-field appearance="fill">
+        <mat-label>Sort by</mat-label>
+        <mat-select [(value)]="selected">
+          <mat-option value="">None</mat-option>
+          <mat-option value="desc">Price: High to Low</mat-option>
+          <mat-option value="asc">Price: Low to High</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-lg-4 col-md-6 text-center mb-4"
+     *ngFor="let s of products | filter:x |filterPrice: minValue:maxValue | orderBy:selected:'priceAfterSale' | paginate: { itemsPerPage: count, currentPage: p }">
+      <div class="single-product-item">
+        <div *ngIf="s.sale != 0" class="sale"><p class='badge' title='22% Sale!'>{{s.sale}}% Sale!</p></div>
+        <div class="product-image">
+          <a><img src="../../assets/img/bag.jpg" alt=""></a>
+        </div>
+        <h3>{{s.name}}</h3>
+        <span>Category: {{s.category}}</span>
+        <ng-template [ngIf]="s.sale == 0" [ngIfElse]="onsale">
+          <div class="d-flex justify-content-center align-items-center">
+            <p class="product-price">
+              ${{s.price}}
+            </p>
+          </div>
+        </ng-template>
+        <!-- <p  class="d-flex justify-content-center product-price">
+          ${{s.price}}
+        </p> -->
+        <ng-template #onsale>
+          <div class="d-flex justify-content-center align-items-center">
+            <p class="product-price">
+              ${{(s.price*(1-s.sale/100)).toFixed(2)}}
+            </p>
+            <p class="old-price">
+              <span>${{s.price}}</span>
+            </p>
+          </div>
+        </ng-template>
+        <a class="cart-btn" (click)="Open(s)">
+          <fa-icon [icon]="faShoppingCart"></fa-icon>More details
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center mt-3 mb-3">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
