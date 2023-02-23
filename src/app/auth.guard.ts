@@ -20,8 +20,7 @@ export class AuthGuard implements CanActivate {
     } else {
       const dialogRef = this.dialog.open(AuthComponent, {
         width: '350px',
-        position: { top: '10vh',
-        left: '40vw'},
+        panelClass: 'auth-dialog',
       });
       return false;
     }

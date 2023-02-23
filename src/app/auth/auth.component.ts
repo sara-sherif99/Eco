@@ -6,6 +6,7 @@ import { faEye, faSeedling, faEyeSlash } from '@fortawesome/free-solid-svg-icons
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
 import { LoginService } from '../services/login.service';
+import { NavbarService } from '../services/navbar.service';
 
 @Component({
   selector: 'app-auth',
@@ -48,6 +49,7 @@ export class AuthComponent {
     private cookieService: CookieService,
     public dialogRef:  MatDialogRef<AuthComponent>,
     private auth: LoginService,
+    private nav:NavbarService,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
@@ -81,6 +83,8 @@ export class AuthComponent {
         localStorage.setItem('isLoggedIn', "true");
         localStorage.setItem('token',response.token);
         localStorage.setItem('user', JSON.stringify(response.user));
+        this.nav.cart=response.user.cart.length;
+        this.nav.wishlist=response.user.wishlist.length;
         this.dialogRef.close();
       },
       (error) => {
@@ -109,7 +113,9 @@ Signup(){
     (response) => {
       localStorage.setItem('user', JSON.stringify(response.user));
       localStorage.setItem('token',response.token);
-      localStorage.setItem('isLoggedIn','true');  
+      localStorage.setItem('isLoggedIn','true');  ;
+      this.nav.cart=response.user.cart.length;
+      this.nav.wishlist=response.user.wishlist.length;
       this.dialogRef.close();
     },
     (error) => {

@@ -23,10 +23,11 @@ export class ShopComponent {
   constructor(public nav:NavbarService,public myService: ProductService,public dialog: MatDialog){}
   products:any;
   x:any;
+  search:any="door";
   items=['All','Kitchen','Tools','Wood','Other'];
   activeIndex=0;
 // Calling Api [ngOnInit]
-  ngOnInit(): void {    
+  ngOnInit(): void {   
     this.nav.home=false;
     this.nav.about=false;
     this.nav.shop=true;

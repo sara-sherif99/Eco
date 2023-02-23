@@ -77,3 +77,12 @@ a.cart-btn:hover {
     font-size: 30px;
     color: #CF3537;
 }
+.cart-btn.disable{
+    background-color: #CF3537;
+}
+.cart-btn.disable:hover{
+    background-color: #ca5e5f;
+}
+.cart-btn *{
+    margin-right: 5px;
+}

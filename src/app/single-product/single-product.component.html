@@ -3,7 +3,7 @@
         <div class="row" style="min-height: 350px">
             <div class="col-md-5 m-auto">
                 <div class="single-product-img">
-                    <img src="assets/img/products/product-img-5.jpg" alt="">
+                    <img [src]=" data?.imgURL || '../../assets/img/default.png'" alt="">
                 </div>
             </div>
             <div class="col-md-7 mt-4">
@@ -13,10 +13,11 @@
                     <p>{{data.description}}</p>
                     <div class="single-product-form">
                         <form action="index.html">
-                            <input type="number" placeholder="0">
+                            <input type="number" placeholder="1"  name="amount" [(ngModel)]="amount">
                         </form>
                         <div class="d-flex align-items-center mb-3">
-                            <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                            <a *ngIf="!inCart" class="cart-btn" (click)="AddToCart()"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                            <a *ngIf="inCart" class="cart-btn disable" (click)="RemovefromCart()"><i class="fas fa-shopping-cart"></i>Remove from Cart</a>
                             <button class="heart" (click)="WishList()">
                                 <fa-icon [icon]="added?faHeartFill:faHeart"></fa-icon>
                             </button>

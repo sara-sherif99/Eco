@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component,ViewChild,ElementRef  ,EventEmitter, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmComponent } from '../confirm/confirm.component';
+import { NavbarService } from '../services/navbar.service';
+import { ProductService } from '../services/product.service';
+import { UserService } from '../services/user.service';
+import { SingleProductComponent } from '../single-product/single-product.component';
 
 @Component({
   selector: 'app-cart',
@@ -6,24 +13,50 @@ import { Component } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-  products: any = [
-    { imgsrc: "../../assets/img/products/product-img-1.jpg", price: 20, id: 10, name: 'Strawberry', brand: "", cat: "", quantity: 3 },
-    { imgsrc: "../../assets/img/products/product-img-1.jpg", price: 30, id: 20, name: 'Strawberry', brand: "", cat: "", quantity: 1 },
-    { imgsrc: "../../assets/img/products/product-img-1.jpg", price: 50, id: 30, name: 'Strawberry', brand: "", cat: "", quantity: 4 },
-
-  ];
-  removeItem(_id: number) {
-    this.products = this.products.filter(
-      (el: any) => {
-        return el.id !== _id;
+  @ViewChild('closebutton') closebutton!: ElementRef;
+  constructor(private productService:ProductService,public dialog: MatDialog,public myService:UserService,
+    private nav:NavbarService,private http: HttpClient){}
+  products: any;
+  user:any;
+  ngOnInit(){
+    this.onRefresh();
+  }
+  onRefresh(){
+    var arr:any=[];
+    this.user=JSON.parse(localStorage.getItem('user') || '{}');
+    this.products=this.user.cart.forEach((ele:any) => {
+      
+       this.productService.getProductByID(ele.productId).subscribe(
+        {
+          next:(res:any)=>{
+            if(ele){
+            res.amount=ele.amount;
+            arr.push(res);
+            }
+          }
+          ,error(err){console.log(err)}
+        });
+    });
+    this.products=arr;
+  }
+  removeItem(id: any) {
+    this.nav.cart-=1;
+    this.myService.removeFromCart(this.user._id,id).subscribe(
+      {
+        next:(res)=>{
+          localStorage.setItem('user', JSON.stringify(res.user));
+          this.onRefresh();
+        },
+        error(err){console.log(err)}
       }
     );
+    
   }
 
   get geTotal() {
     let total = 0;
     this.products.forEach((element: any) => {
-      total += element.price * element.quantity;
+      total += ((element.price*(1-element.sale/100)) * element.amount);
     });
     return total;
   }
@@ -43,4 +76,26 @@ export class CartComponent {
     })
   }
 
+  Open(product:any){
+    const dialogRef = this.dialog.open(SingleProductComponent, {
+      panelClass: 'product-dialog',
+      data:product
+      /*position: { top: '10vh',
+      left: '40vw'},*/
+    });
+  }
+  
+  Checkout(){
+    
+    this.http.post<any>('http://localhost:3000/order',  {productIds:this.user.cart,userId:this.user._id,orderDate:new Date(),totalPrice:this.allTotal}).subscribe(
+      (response) => {
+        console.log(response)
+        this.closebutton.nativeElement.click();
+      },
+      (error) => {
+      }
+    );
+    
+  }
 }
+

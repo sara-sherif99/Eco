@@ -287,3 +287,40 @@ h6 {
   color: var(--light);
   background-color: var(--bs-dropdown-link-hover-bg);
 }
+/*.numberOfitems span {
+  background-color: red;
+  border-radius: 50%;
+  color:white;
+  text-align: center;
+}*/
+.numberOfitems span {
+  font-size: 16px;
+  line-height: 14px;
+  position: absolute;
+  z-index: 900;
+  top: -12px;
+  right: -10px;
+  color: #fff;
+  padding: 5px;
+  width: 22px;
+  height: 22px;
+  background: #CF3537;
+  border-radius: 50%;
+  text-align: center;
+
+}
+.numberOfitems {
+  display: block;
+  text-decoration: none;
+  font-size: 20px;
+  transition: all ease 0.2s;
+  line-height: 24px;
+  position: relative;
+}
+#header.scroll .cart-icon{
+  color: var(--green);
+}
+
+.cart-icon{
+  font-size: 25px;
+}

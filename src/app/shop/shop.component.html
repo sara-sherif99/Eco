@@ -74,11 +74,11 @@
   </div>
   <div class="row ">
     <div class="col-lg-4 col-md-6 text-center mb-4"
-     *ngFor="let s of products | filter:x |filterPrice: minValue:maxValue | orderBy:selected:'priceAfterSale' | paginate: { itemsPerPage: count, currentPage: p }">
+     *ngFor="let s of products | filter:x | filter:nav.search |filterPrice: minValue:maxValue | orderBy:selected:'priceAfterSale' | paginate: { itemsPerPage: count, currentPage: p } ">
       <div class="single-product-item">
         <div *ngIf="s.sale != 0" class="sale"><p class='badge' title='22% Sale!'>{{s.sale}}% Sale!</p></div>
         <div class="product-image">
-          <a><img src="../../assets/img/bag.jpg" alt=""></a>
+          <a><img [src]=" s?.imgURL|| '../../assets/img/default.png'" alt=""></a>
         </div>
         <h3>{{s.name}}</h3>
         <span>Category: {{s.category}}</span>

@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule , HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -28,6 +28,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CartComponent } from './cart/cart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { LoadingInterceptor } from './loading.interceptor';
+import { DatePipe } from '@angular/common';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 
 @NgModule({
@@ -44,7 +48,9 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     FilterPricePipe,
     OrderByPipe,
     CartComponent,
-    WishlistComponent
+    WishlistComponent,
+    SpinnerComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -68,8 +74,10 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     NgxPaginationModule
   ],
   providers: [
+    [DatePipe,CartComponent],
     {provide: MatDialogRef, useValue: {}},
     {provide: MAT_DIALOG_DATA, useValue: []},
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

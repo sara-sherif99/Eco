@@ -23,4 +23,6 @@ export class ProductService {
     // return this.myClient.get(this.BaseURL+"/"+id);
     return this.myClient.get(`${this.productURL}/${id}`);
   }
+
+  
 }
